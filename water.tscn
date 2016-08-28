@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://water.gd" type="Script" id=1]
+[ext_resource path="res://wave.png" type="Texture" id=2]
+[ext_resource path="res://wave-anim.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 40.0
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shading_mode = 0
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "move"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("RigidBody2D:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 2, 4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 5.0, -5.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("RigidBody2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 2, 4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -5, 1 ), Vector2( -2.5, 0.5 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("RigidBody2D/Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 21.0349, -48.488 ), Vector2( 28.1271, -48.0237 ) ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "wave"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("RigidBody2D:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 2, 4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 5.0, -5.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("RigidBody2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 2, 4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -5, 1 ), Vector2( -2.5, 0.5 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("RigidBody2D/Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 21.0349, -48.488 ), Vector2( 28.1271, -48.0237 ) ] }
+
+[node name="water" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( -4.62603, 0.925207 )
+transform/rot = 4.62603
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 0.0
+bounce = 0.110282
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+
+transform/pos = Vector2( 24.3158, -48.2732 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -148.716, -21.3261 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+
+material/material = SubResource( 2 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 9.99774
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/move = SubResource( 3 )
+"anims/wave (copy)" = SubResource( 4 )
+"next/wave (copy)" = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+script/script = ExtResource( 3 )
+
+

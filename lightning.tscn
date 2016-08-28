@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://lightning.gd" type="Script" id=1]
+[ext_resource path="res://lightning.png" type="Texture" id=2]
+[ext_resource path="res://lightning.wav" type="Sample" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "strike"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.6, 0.8, 2 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 1.0, 0.3, 1.0, 0.0 ] }
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -7.9296, -0.217803, -31.5329, 22.9795, -35.541, 14.0922, 1.08864, -23.5657, 8.65952, -17.3898 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 30.8155, -10.1595, -7.9296, -0.217803, 8.65952, -17.3898, 23.2446, -26.5783 )
+
+[sub_resource type="SampleLibrary" id=4]
+
+samples/lightning = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+
+[node name="lightning" type="Area2D"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/opacity = 0.0
+visibility/blend_mode = 1
+transform/pos = Vector2( 6.70831, -10.0624 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/strike = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Area2D" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 13.358, 0.983284 )
+transform/scale = Vector2( 4.3802, 3.23754 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+build_mode = 0
+polygon = Vector2Array( -35.541, 14.0922, -31.5329, 22.9795, -7.9296, -0.217803, 30.8155, -10.1595, 23.2446, -26.5783, 8.65952, -17.3898, 1.08864, -23.5657 )
+shape_range = Vector2( 0, 1 )
+trigger = false
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 800.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 4 )
+config/pitch_random = 0.0
+
+[connection signal="finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
+
+

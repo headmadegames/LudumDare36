@@ -1,0 +1,37 @@
+[gd_scene format=1]
+
+[node name="splashscreen" type="Panel"]
+
+anchor/top = 3
+anchor/right = 1
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 17.0
+margin/top = 282.0
+margin/right = 698.0
+margin/bottom = 42.0
+
+[node name="Button" type="Button" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 18.5
+margin/top = 13.0
+margin/right = -22.5
+margin/bottom = -7.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Start"
+flat = false
+
+

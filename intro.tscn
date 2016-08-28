@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://intro.gd" type="Script" id=1]
+[ext_resource path="res://bg.png" type="Texture" id=2]
+[ext_resource path="res://podium.png" type="Texture" id=3]
+[ext_resource path="res://torso.png" type="Texture" id=4]
+[ext_resource path="res://mouth.png" type="Texture" id=5]
+[ext_resource path="res://head.png" type="Texture" id=6]
+[ext_resource path="res://arm.png" type="Texture" id=7]
+[ext_resource path="res://roar.wav" type="Sample" id=8]
+[ext_resource path="res://jurassic.fnt" type="BitmapFont" id=9]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "talk"
+length = 7.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("podium/torso/mouth:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.2, 1.3, 1.4, 1.7, 2.2, 2.4, 2.7, 2.9, 3.1, 3.7, 3.8, 3.9, 4, 4.1, 4.3, 4.5, 4.7, 4.8, 4.9, 5.1, 5.2, 5.7, 5.8, 5.9, 6, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, 0.0, -15.7181, 0.0, -15.7181, 0.0, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0, -15.7181, 0.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("podium/torso/mouth:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3, 0.9, 1.4, 1.6, 1.9, 3.8, 4.2, 4.5, 5.2, 5.4, 5.8, 6.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -16.0934, -58.5212 ), Vector2( -16.0934, -58.5212 ), Vector2( -18.5317, -53.6445 ), Vector2( -16.0934, -58.5212 ), Vector2( -18.5317, -53.6445 ), Vector2( -16.0934, -58.5212 ), Vector2( -16.0934, -58.5212 ), Vector2( -18.5317, -53.6445 ), Vector2( -16.0934, -58.5212 ), Vector2( -16.0934, -58.5212 ), Vector2( -18.5317, -53.6445 ), Vector2( -18.5317, -53.6445 ), Vector2( -16.0934, -58.5212 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("podium/torso/rightarm:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1.8, 2.3, 2.7, 5.3, 5.8, 6.2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 0.0, 62.9978, 0.0, 0.0, 62.9978, 0.0 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("podium/torso/leftarm:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1.2, 1.7, 2.3, 2.8, 3.1, 3.6, 4.1, 5.8, 6.3, 6.6 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 0.0, 73.0884, 0.0, 73.0884, 0.0, 73.0884, 0.0, 0.0, 73.0884, 0.0 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("podium/torso/head:transform/rot")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 1.8, 2.2, 2.6, 5.9, 6.3, 6.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 7.65642, 0.0, 0.0, 7.65642, 0.0 ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "idle"
+length = 7.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("podium/torso:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1, 2.3, 4, 4.7, 5.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -3.25244, -190.829 ), Vector2( -27.62, -176.388 ), Vector2( -3.25244, -190.829 ), Vector2( -3.25244, -190.829 ), Vector2( 30.1402, -175.185 ), Vector2( -3.25244, -190.829 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("podium/torso:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.8, 1.3, 2.1, 4.2, 4.8, 5.3 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, -4.0, -4.0, 0.0, 0.0, 4.0, 0.0 ] }
+
+[sub_resource type="SampleLibrary" id=3]
+
+samples/roar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+
+[node name="intro" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 647.517, 384.206 )
+transform/scale = Vector2( 1.42529, 1.42529 )
+z/z = -4
+texture = ExtResource( 2 )
+
+[node name="podium" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 882.353, 568.021 )
+texture = ExtResource( 3 )
+
+[node name="torso" type="Sprite" parent="podium"]
+
+transform/pos = Vector2( -19.1027, -181.436 )
+transform/rot = -3.25233
+z/z = -1
+texture = ExtResource( 4 )
+offset = Vector2( -6.81763, 29.7058 )
+
+[node name="mouth" type="Sprite" parent="podium/torso"]
+
+transform/pos = Vector2( -16.0934, -58.5212 )
+texture = ExtResource( 5 )
+offset = Vector2( 42.4378, 2.3959 )
+
+[node name="head" type="Sprite" parent="podium/torso"]
+
+transform/pos = Vector2( -14.6304, -41.4525 )
+texture = ExtResource( 6 )
+offset = Vector2( 36.6807, -44.3652 )
+
+[node name="rightarm" type="Sprite" parent="podium/torso"]
+
+transform/pos = Vector2( 53.6444, 68.2748 )
+texture = ExtResource( 7 )
+offset = Vector2( 17.0786, 16.5385 )
+
+[node name="leftarm" type="Sprite" parent="podium/torso"]
+
+transform/pos = Vector2( -60.472, 64.8611 )
+texture = ExtResource( 7 )
+offset = Vector2( 16.1032, 29.2181 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/talk = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="AnimationPlayer 2" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="sound" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 3 )
+config/pitch_random = 0.0
+
+[node name="text" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 89.0
+margin/top = 111.0
+margin/right = 665.0
+margin/bottom = 479.0
+custom_fonts/font = ExtResource( 9 )
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
