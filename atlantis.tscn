@@ -9,62 +9,62 @@
 [ext_resource path="res://jet.wav" type="Sample" id=7]
 [ext_resource path="res://transition.png" type="Texture" id=8]
 [ext_resource path="res://dome.gd" type="Script" id=9]
-[ext_resource path="res://dome2.png" type="Texture" id=10]
+[ext_resource path="res://dome1.png" type="Texture" id=10]
 [ext_resource path="res://dome3.png" type="Texture" id=11]
-[ext_resource path="res://dome1.png" type="Texture" id=12]
+[ext_resource path="res://dome2.png" type="Texture" id=12]
 [ext_resource path="res://bing.wav" type="Sample" id=13]
 [ext_resource path="res://glasbreak.wav" type="Sample" id=14]
 [ext_resource path="res://glasshard.png" type="Texture" id=15]
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 167.897, 23.3016, -26.7695, 112.083, -173.381, 15.9711, -162.792, -4.3916, -135.913, -14.9802, 133.688, -15.7947, 171.156, 1.30995 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 106.81, -74.4391, 134.503, -54.0765, 133.688, -15.7947, -135.913, -14.9802, -135.913, -50.0039, -107.406, -71.9956, -76.4544, -72.8101 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -76.4544, -72.8101, -45.5031, -104.576, 21.2864, -110.277, 66.8987, -77.6972 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -76.4544, -72.8101, 66.8987, -77.6972, 106.81, -74.4391 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -107.406, -71.9956, -76.4544, -72.8101, -107.406, -71.9956 )
 
-[sub_resource type="ColorRamp" id=4]
+[sub_resource type="ColorRamp" id=6]
 
 offsets = FloatArray( 0, 0.157895, 0.795322, 1 )
 colors = ColorArray( 1, 0.234375, 0, 1, 0.981388, 0.545851, 0.0210841, 0.925953, 1, 0.905243, 0.472656, 0.627024, 0.996094, 0.653687, 0, 0 )
 
-[sub_resource type="ColorRamp" id=6]
+[sub_resource type="ColorRamp" id=7]
 
 offsets = FloatArray( 0.00584795, 0.894737, 1 )
 colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 0.429412, 1, 1, 1, 0 )
 
-[sub_resource type="SampleLibrary" id=13]
+[sub_resource type="SampleLibrary" id=8]
 
 samples/jet = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
-[sub_resource type="ConvexPolygonShape2D" id=17]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -9.92424, 6.94445, -9.65909, 1.94445, -8.25758, -3.05556, -5.56818, -7.36111, -1.74242, -9.86111, 1.74242, -9.86111, 5.30303, -7.77778, 8.10606, -3.75, 9.65909, 1.38889, 9.92424, 7.01389, -0.0757582, 9.72222 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=10]
 
-animations = [ { "frames":[ ExtResource( 10 ) ], "loop":true, "name":"damaged1", "speed":5.0 }, { "frames":[ ExtResource( 11 ) ], "loop":true, "name":"damaged2", "speed":5.0 }, { "frames":[ ExtResource( 12 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 10 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 11 ) ], "loop":true, "name":"damaged2", "speed":5.0 }, { "frames":[ ExtResource( 12 ) ], "loop":true, "name":"damaged1", "speed":5.0 } ]
 
-[sub_resource type="SampleLibrary" id=16]
+[sub_resource type="SampleLibrary" id=11]
 
 samples/bing = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
 samples/glasbreak = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
@@ -76,19 +76,19 @@ script/script = ExtResource( 1 )
 [node name="island" type="RigidBody2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 9 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 10 )
+shapes/2/shape = SubResource( 3 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 11 )
+shapes/3/shape = SubResource( 4 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 12 )
+shapes/4/shape = SubResource( 5 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/4/trigger = false
 collision/layers = 1
@@ -179,7 +179,7 @@ randomness/orbit_velocity = 1.0
 randomness/initial_angle = 1.0
 randomness/initial_size = 1.0
 randomness/final_size = 1.0
-color/color_ramp = SubResource( 4 )
+color/color_ramp = SubResource( 6 )
 
 [node name="jetright" type="Particles2D" parent="island"]
 
@@ -216,7 +216,7 @@ randomness/orbit_velocity = 1.0
 randomness/initial_angle = 1.0
 randomness/initial_size = 1.0
 randomness/final_size = 1.0
-color/color_ramp = SubResource( 4 )
+color/color_ramp = SubResource( 6 )
 
 [node name="debris" type="Particles2D" parent="island"]
 
@@ -254,7 +254,7 @@ randomness/orbit_velocity = 1.0
 randomness/initial_size = 1.0
 randomness/final_size = 0.55661
 randomness/hue_variation = 0.0888135
-color/color_ramp = SubResource( 6 )
+color/color_ramp = SubResource( 7 )
 
 [node name="debris1" type="Particles2D" parent="island"]
 
@@ -292,7 +292,7 @@ randomness/orbit_velocity = 1.0
 randomness/initial_size = 1.0
 randomness/final_size = 0.55661
 randomness/hue_variation = 0.0888135
-color/color_ramp = SubResource( 6 )
+color/color_ramp = SubResource( 7 )
 script/script = ExtResource( 6 )
 
 [node name="sounds" type="SamplePlayer2D" parent="island"]
@@ -303,42 +303,50 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 13 )
+config/samples = SubResource( 8 )
 config/pitch_random = 0.0
 
-[node name="Particles2D" type="Particles2D" parent="island"]
+[node name="lightningparticles" type="Particles2D" parent="island"]
 
-visibility/visible = false
 visibility/blend_mode = 1
-transform/pos = Vector2( -46.5375, 68.6983 )
-transform/rot = -55.2881
-config/amount = 32
-config/lifetime = 2.0
+transform/pos = Vector2( -7.18111, 36.7682 )
+transform/rot = -7.55303
+transform/scale = Vector2( 0.304375, 0.304375 )
+config/amount = 1
+config/lifetime = 0.01
+config/time_scale = 2.0
+config/emit_timeout = 2.0
+config/emitting = false
+config/half_extents = Vector2( 180, 80 )
 config/flip_h = true
 config/flip_v = true
 config/texture = ExtResource( 8 )
-params/direction = 0.0
-params/spread = 10.0
+params/direction = 47.11
+params/spread = 105.885
 params/linear_velocity = 20.0
 params/spin_velocity = 0.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 0.0
-params/gravity_strength = 9.8
+params/gravity_strength = 0.0
 params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
+params/initial_angle = 183.702
+params/initial_size = 2.0
 params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 1.0
+randomness/initial_angle = 1.0
+randomness/initial_size = 0.616271
 
 [node name="dome" type="RigidBody2D" parent="."]
 
 transform/pos = Vector2( 0, -58.4566 )
 input/pickable = true
-shapes/0/shape = SubResource( 17 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 15.8067, 0, 0, 8.62184, 0.99073, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -362,7 +370,7 @@ script/script = ExtResource( 9 )
 
 [node name="Sprite" type="AnimatedSprite" parent="dome"]
 
-frames = SubResource( 15 )
+frames = SubResource( 10 )
 animation = "default"
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="dome"]
@@ -382,7 +390,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 16 )
+config/samples = SubResource( 11 )
 config/pitch_random = 0.0
 
 [node name="glasparticles" type="Particles2D" parent="dome"]

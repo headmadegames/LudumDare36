@@ -18,20 +18,20 @@ func _ready():
 	get_node("island/sounds").play("jet")
 
 func _process(delta):
-	
 	if (Input.is_action_pressed("ui_cancel")): 
 		Transition.fade_to("res://game.tscn")
 	
 	var impulse = Vector2(0,-2).rotated(get_node("island").get_rot())
 	var playSound = false
-	if (Input.is_action_pressed("jetleft")):
+	var stunned = get_node("island/lightningparticles").is_emitting()
+	if (not stunned and Input.is_action_pressed("jetleft")):
 		get_node("island/jetleft").set_emitting(true)
 		get_node("island").apply_impulse(get_node("island/jetleft").get_pos().rotated(get_node("island").get_rot()), impulse)
 		playSound = true
 	else:
 		get_node("island/jetleft").set_emitting(false)
 	
-	if (Input.is_action_pressed("jetright")):
+	if (not stunned and Input.is_action_pressed("jetright")):
 		get_node("island/jetright").set_emitting(true)
 		get_node("island").apply_impulse(get_node("island/jetright").get_pos().rotated(get_node("island").get_rot()), impulse)
 		playSound = true
@@ -44,3 +44,5 @@ func _process(delta):
 		get_node("island/sounds").voice_set_volume_scale_db(0, 0)
 	else:
 		get_node("island/sounds").voice_set_volume_scale_db(0, -60)
+
+
